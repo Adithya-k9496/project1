@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  =============================================================
+  BACKEND DATA SOURCE: jobs.xml
+  Parsed by Node.js (Express) using the 'xml2js' library.
+  Route: GET /api/jobs  →  backend/routes/jobs.js
+  =============================================================
+-->
+<jobs>
+
+  <job id="1">
+    <title>Senior Frontend Developer</title>
+    <company>TechNova Inc.</company>
+    <location>Bangalore, India</location>
+    <type>Full-time</type>
+    <category>Technology</category>
+    <salary>&#8377;18L &#8211; &#8377;28L/yr</salary>
+    <posted>2026-05-20</posted>
+    <logo>TN</logo>
+    <color>#6C63FF</color>
+    <description>
+      We are looking for an experienced Frontend Developer to join our growing
+      product team. You will work on building scalable web applications using
+      React, TypeScript, and modern tooling.
+    </description>
+    <requirements>
+      <item>5+ years React experience</item>
+      <item>TypeScript proficiency</item>
+      <item>REST API integration</item>
+      <item>Team leadership skills</item>
+    </requirements>
+    <benefits>
+      <item>Health insurance</item>
+      <item>Remote work</item>
+      <item>Stock options</item>
+      <item>Learning budget</item>
+    </benefits>
+  </job>
+
+  <job id="2">
+    <title>Product Manager</title>
+    <company>FinEdge Solutions</company>
+    <location>Mumbai, India</location>
+    <type>Full-time</type>
+    <category>Management</category>
+    <salary>&#8377;22L &#8211; &#8377;35L/yr</salary>
+    <posted>2026-05-22</posted>
+    <logo>FE</logo>
+    <color>#FF6584</color>
+    <description>
+      Drive product strategy and roadmap for our fintech platform. Work
+      cross-functionally with engineering, design, and business teams to
+      deliver high-impact features.
+    </description>
+    <requirements>
+      <item>3+ years PM experience</item>
+      <item>Fintech domain knowledge</item>
+      <item>Strong analytical skills</item>
+      <item>Stakeholder management</item>
+    </requirements>
+    <benefits>
+      <item>Equity compensation</item>
+      <item>Flexible hours</item>
+      <item>Annual retreat</item>
+      <item>Wellness allowance</item>
+    </benefits>
+  </job>
+
+  <job id="3">
+    <title>Data Scientist</title>
+    <company>InsightAI Labs</company>
+    <location>Hyderabad, India</location>
+    <type>Full-time</type>
+    <category>Data &amp; AI</category>
+    <salary>&#8377;16L &#8211; &#8377;26L/yr</salary>
+    <posted>2026-05-21</posted>
+    <logo>IA</logo>
+    <color>#43C6AC</color>
+    <description>
+      Build and deploy machine learning models that power our AI-driven
+      analytics platform. You'll work on NLP, recommendation systems,
+      and predictive modeling.
+    </description>
+    <requirements>
+      <item>Python and ML frameworks</item>
+      <item>Statistics knowledge</item>
+      <item>SQL proficiency</item>
+      <item>Research mindset</item>
+    </requirements>
+    <benefits>
+      <item>GPU workstations</item>
+      <item>Conference sponsorship</item>
+      <item>Open source time</item>
+      <item>Meal allowance</item>
+    </benefits>
+  </job>
+
+  <job id="4">
+    <title>UX/UI Designer</title>
+    <company>Craftly Studio</company>
+    <location>Pune, India</location>
+    <type>Contract</type>
+    <category>Design</category>
+    <salary>&#8377;80K &#8211; &#8377;1.2L/mo</salary>
+    <posted>2026-05-23</posted>
+    <logo>CS</logo>
+    <color>#F7971E</color>
+    <description>
+      Shape the visual identity and user experience for our suite of B2B
+      products. You'll own end-to-end design from research to high-fidelity
+      prototypes.
+    </description>
+    <requirements>
+      <item>Figma mastery</item>
+      <item>Design systems experience</item>
+      <item>User research skills</item>
+      <item>Portfolio required</item>
+    </requirements>
+    <benefits>
+      <item>Remote work</item>
+      <item>Creative freedom</item>
+      <item>Tool budget</item>
+      <item>Flexible hours</item>
+    </benefits>
+  </job>
+
+  <job id="5">
+    <title>Node.js Backend Engineer</title>
+    <company>CloudStack Technologies</company>
+    <location>Chennai, India</location>
+    <type>Full-time</type>
+    <category>Technology</category>
+    <salary>&#8377;14L &#8211; &#8377;22L/yr</salary>
+    <posted>2026-05-19</posted>
+    <logo>CK</logo>
+    <color>#3A7BD5</color>
+    <description>
+      Build high-performance REST and GraphQL APIs using Node.js and Express.
+      Design scalable microservices architecture and manage cloud infrastructure
+      on AWS.
+    </description>
+    <requirements>
+      <item>Node.js and Express expertise</item>
+      <item>Database design (SQL + NoSQL)</item>
+      <item>AWS/GCP experience</item>
+      <item>Microservices architecture</item>
+    </requirements>
+    <benefits>
+      <item>Remote-first</item>
+      <item>Tech allowance</item>
+      <item>Fast promotions</item>
+      <item>Health coverage</item>
+    </benefits>
+  </job>
+
+  <job id="6">
+    <title>Marketing Manager</title>
+    <company>BrandPulse Agency</company>
+    <location>Delhi, India</location>
+    <type>Part-time</type>
+    <category>Marketing</category>
+    <salary>&#8377;60K &#8211; &#8377;90K/mo</salary>
+    <posted>2026-05-24</posted>
+    <logo>BP</logo>
+    <color>#EB3349</color>
+    <description>
+      Lead digital marketing campaigns across social, SEO, and paid channels.
+      Collaborate with content creators and analysts to grow brand awareness
+      and lead generation.
+    </description>
+    <requirements>
+      <item>5+ years digital marketing</item>
+      <item>SEO/SEM expertise</item>
+      <item>Analytics tools</item>
+      <item>Content strategy</item>
+    </requirements>
+    <benefits>
+      <item>Performance bonus</item>
+      <item>Hybrid work</item>
+      <item>Brand perks</item>
+      <item>Team events</item>
+    </benefits>
+  </job>
+
+</jobs>
