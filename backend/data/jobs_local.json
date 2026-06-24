@@ -1,0 +1,158 @@
+[
+  {
+    "_id": "1",
+    "id": "1",
+    "title": "Senior Frontend Developer",
+    "company": "TechNova Inc.",
+    "location": "Bangalore, India",
+    "type": "Full-time",
+    "category": "Technology",
+    "salary": "₹18L – ₹28L/yr",
+    "posted": "2026-05-20",
+    "logo": "TN",
+    "color": "#6C63FF",
+    "description": "We are looking for an experienced Frontend Developer to join our growing\n      product team. You will work on building scalable web applications using\n      React, TypeScript, and modern tooling.",
+    "requirements": [
+      "5+ years React experience",
+      "TypeScript proficiency",
+      "REST API integration",
+      "Team leadership skills"
+    ],
+    "benefits": [
+      "Health insurance",
+      "Remote work",
+      "Stock options",
+      "Learning budget"
+    ]
+  },
+  {
+    "_id": "2",
+    "id": "2",
+    "title": "Product Manager",
+    "company": "FinEdge Solutions",
+    "location": "Mumbai, India",
+    "type": "Full-time",
+    "category": "Management",
+    "salary": "₹22L – ₹35L/yr",
+    "posted": "2026-05-22",
+    "logo": "FE",
+    "color": "#FF6584",
+    "description": "Drive product strategy and roadmap for our fintech platform. Work\n      cross-functionally with engineering, design, and business teams to\n      deliver high-impact features.",
+    "requirements": [
+      "3+ years PM experience",
+      "Fintech domain knowledge",
+      "Strong analytical skills",
+      "Stakeholder management"
+    ],
+    "benefits": [
+      "Equity compensation",
+      "Flexible hours",
+      "Annual retreat",
+      "Wellness allowance"
+    ]
+  },
+  {
+    "_id": "3",
+    "id": "3",
+    "title": "Data Scientist",
+    "company": "InsightAI Labs",
+    "location": "Hyderabad, India",
+    "type": "Full-time",
+    "category": "Data & AI",
+    "salary": "₹16L – ₹26L/yr",
+    "posted": "2026-05-21",
+    "logo": "IA",
+    "color": "#43C6AC",
+    "description": "Build and deploy machine learning models that power our AI-driven\n      analytics platform. You'll work on NLP, recommendation systems,\n      and predictive modeling.",
+    "requirements": [
+      "Python and ML frameworks",
+      "Statistics knowledge",
+      "SQL proficiency",
+      "Research mindset"
+    ],
+    "benefits": [
+      "GPU workstations",
+      "Conference sponsorship",
+      "Open source time",
+      "Meal allowance"
+    ]
+  },
+  {
+    "_id": "4",
+    "id": "4",
+    "title": "UX/UI Designer",
+    "company": "Craftly Studio",
+    "location": "Pune, India",
+    "type": "Contract",
+    "category": "Design",
+    "salary": "₹80K – ₹1.2L/mo",
+    "posted": "2026-05-23",
+    "logo": "CS",
+    "color": "#F7971E",
+    "description": "Shape the visual identity and user experience for our suite of B2B\n      products. You'll own end-to-end design from research to high-fidelity\n      prototypes.",
+    "requirements": [
+      "Figma mastery",
+      "Design systems experience",
+      "User research skills",
+      "Portfolio required"
+    ],
+    "benefits": [
+      "Remote work",
+      "Creative freedom",
+      "Tool budget",
+      "Flexible hours"
+    ]
+  },
+  {
+    "_id": "5",
+    "id": "5",
+    "title": "Node.js Backend Engineer",
+    "company": "CloudStack Technologies",
+    "location": "Chennai, India",
+    "type": "Full-time",
+    "category": "Technology",
+    "salary": "₹14L – ₹22L/yr",
+    "posted": "2026-05-19",
+    "logo": "CK",
+    "color": "#3A7BD5",
+    "description": "Build high-performance REST and GraphQL APIs using Node.js and Express.\n      Design scalable microservices architecture and manage cloud infrastructure\n      on AWS.",
+    "requirements": [
+      "Node.js and Express expertise",
+      "Database design (SQL + NoSQL)",
+      "AWS/GCP experience",
+      "Microservices architecture"
+    ],
+    "benefits": [
+      "Remote-first",
+      "Tech allowance",
+      "Fast promotions",
+      "Health coverage"
+    ]
+  },
+  {
+    "_id": "6",
+    "id": "6",
+    "title": "Marketing Manager",
+    "company": "BrandPulse Agency",
+    "location": "Delhi, India",
+    "type": "Part-time",
+    "category": "Marketing",
+    "salary": "₹60K – ₹90K/mo",
+    "posted": "2026-05-24",
+    "logo": "BP",
+    "color": "#EB3349",
+    "description": "Lead digital marketing campaigns across social, SEO, and paid channels.\n      Collaborate with content creators and analysts to grow brand awareness\n      and lead generation.",
+    "requirements": [
+      "5+ years digital marketing",
+      "SEO/SEM expertise",
+      "Analytics tools",
+      "Content strategy"
+    ],
+    "benefits": [
+      "Performance bonus",
+      "Hybrid work",
+      "Brand perks",
+      "Team events"
+    ]
+  }
+]

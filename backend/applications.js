@@ -3,8 +3,7 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
-const Application = require("./models/Application");
-const Job = require("./models/Job");
+const dataService = require("./dataService");
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "jobportal_secret_key_2026";
@@ -79,12 +78,12 @@ router.post("/", verifyToken, (req, res) => {
       }
 
       // Find job to extract jobTitle and company details
-      const job = await Job.findById(jobId);
+      const job = await dataService.getJobById(jobId);
       if (!job) {
         return res.status(404).json({ success: false, error: "Job not found." });
       }
 
-      const application = new Application({
+      const application = await dataService.createApplication({
         jobId,
         jobTitle: job.title,
         company: job.company,
@@ -93,8 +92,6 @@ router.post("/", verifyToken, (req, res) => {
         seekerPhone,
         resumePath: `/uploads/${req.file.filename}`,
       });
-
-      await application.save();
 
       res.status(201).json({
         success: true,
@@ -117,7 +114,7 @@ router.get("/", verifyToken, async (req, res) => {
       return res.status(403).json({ success: false, error: "Access denied. Employer dashboard access only." });
     }
 
-    const applications = await Application.find().sort({ createdAt: -1 });
+    const applications = await dataService.getApplications();
     res.json({
       success: true,
       count: applications.length,
@@ -142,11 +139,7 @@ router.put("/:id/status", verifyToken, async (req, res) => {
       return res.status(400).json({ success: false, error: "Invalid status value." });
     }
 
-    const updated = await Application.findByIdAndUpdate(
-      req.params.id,
-      { status, isSeekerRead: false },
-      { new: true }
-    );
+    const updated = await dataService.updateApplicationStatus(req.params.id, status);
 
     if (!updated) {
       return res.status(404).json({ success: false, error: "Application not found." });
@@ -163,7 +156,7 @@ router.put("/:id/status", verifyToken, async (req, res) => {
 // Delete the application/notification record (Employer or candidate seeker)
 router.delete("/:id", verifyToken, async (req, res) => {
   try {
-    const application = await Application.findById(req.params.id);
+    const application = await dataService.getApplicationById(req.params.id);
     if (!application) {
       return res.status(404).json({ success: false, error: "Notification not found." });
     }
@@ -175,7 +168,7 @@ router.delete("/:id", verifyToken, async (req, res) => {
       return res.status(403).json({ success: false, error: "Access denied. Unauthorized to delete this notification." });
     }
 
-    await Application.findByIdAndDelete(req.params.id);
+    await dataService.deleteApplication(req.params.id);
     res.json({ success: true, message: "Notification deleted successfully." });
   } catch (err) {
     console.error("[DELETE /api/applications/:id]", err.message);
@@ -192,9 +185,7 @@ router.get("/seeker", verifyToken, async (req, res) => {
     }
 
     const seekerEmail = req.user.email.toLowerCase();
-    const applications = await Application.find({
-      seekerEmail: { $regex: new RegExp("^" + seekerEmail + "$", "i") }
-    }).sort({ createdAt: -1 });
+    const applications = await dataService.getApplicationsBySeeker(seekerEmail);
 
     res.json({
       success: true,
@@ -216,13 +207,7 @@ router.put("/seeker/read", verifyToken, async (req, res) => {
     }
 
     const seekerEmail = req.user.email.toLowerCase();
-    await Application.updateMany(
-      {
-        seekerEmail: { $regex: new RegExp("^" + seekerEmail + "$", "i") },
-        status: { $ne: "Pending" }
-      },
-      { isSeekerRead: true }
-    );
+    await dataService.markApplicationsAsRead(seekerEmail);
 
     res.json({ success: true, message: "Notifications marked as read." });
   } catch (err) {

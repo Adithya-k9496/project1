@@ -8,36 +8,47 @@ This guide provides step-by-step instructions on how to install, configure, and 
 
 Before running the application, make sure you have the following installed:
 * **Node.js** (v16.0.0 or higher) — [Download Node.js](https://nodejs.org/)
-* **MongoDB Atlas Account** (or a local MongoDB instance running)
+* **MongoDB Account** (Optional — only required for cloud database mode)
+
+---
+
+## ⚡ Execution Modes (MongoDB vs. Local Mode)
+
+The backend features a **hybrid database fallback engine** that automatically determines how data is read and written based on your environment variables:
+
+1. **Local Mode (Default / Offline):** If `MONGODB_URI` is missing or commented out in your `.env` file, the server launches in Local Mode. It initializes jobs from `jobs.xml` and saves all changes (registered users, new jobs, submitted applications) directly to local JSON files under `backend/data/`. No database installation is required!
+2. **MongoDB Mode:** If `MONGODB_URI` is provided, the server connects to your cloud MongoDB Atlas cluster and uses Mongoose collections.
 
 ---
 
 ## 🚀 Setup Instructions
 
-Follow these 4 simple steps to get the project up and running:
-
 ### Step 1: Create the Environment Configuration (`.env`)
-Since database credentials and JWT security secrets are kept private and are not uploaded to GitHub, you must create a configuration file manually:
 1. Navigate into the `backend` folder.
 2. Create a new file named `.env`.
-3. Paste the following configuration, replacing the database connection string with your own **MongoDB Atlas URI**:
+3. Add the following parameters:
 
 ```env
+# Optional: Provide a connection string to connect to MongoDB. 
+# If left blank, the app will run in Local Mode (offline JSON storage).
 MONGODB_URI=mongodb+srv://your_username:your_password@cluster0.xxx.mongodb.net/job_portal?retryWrites=true&w=majority
+
 JWT_SECRET=jobportal_secret_key_2026
 PORT=5000
 ```
 
 ---
 
-### Step 2: Seed the Database (Optional but Recommended)
-To pre-populate your MongoDB database with the initial job listings parsed from the legacy `jobs.xml` data source:
+### Step 2: Seed the Database (MongoDB Mode Only)
+If you are running in **MongoDB Mode** and want to populate your cloud database with the initial job listings parsed from the legacy `jobs.xml` file:
 1. Open your terminal in the `backend` folder.
 2. Run the seeding script:
    ```bash
    node seed.js
    ```
 3. You should see a confirmation message: `🎉 Successfully seeded jobs in MongoDB!`
+
+*(Note: In Local Mode, this seeding step is automatic on first launch).*
 
 ---
 
@@ -65,7 +76,7 @@ To pre-populate your MongoDB database with the initial job listings parsed from 
    ```bash
    npm run dev
    ```
-   *The client will open automatically in your browser at:* `http://localhost:3000` (or `http://localhost:5173` if running Vite)
+   *The client will open automatically in your browser at:* `http://localhost:3000`
 
 ---
 
@@ -76,11 +87,15 @@ This repository is organized into a clean client-server architecture:
 ```
 project1/
 ├── backend/                  ← Express API Server
-│   ├── models/               ← Mongoose schemas (User, Job, Application)
+│   ├── data/                 ← (Auto-generated in Local Mode) JSON storage files
+│   │   ├── jobs_local.json
+│   │   ├── users_local.json
+│   │   └── applications_local.json
+│   ├── models/               ← Mongoose schemas (used in MongoDB Mode)
 │   ├── uploads/              ← Directory for uploaded PDF resumes (static)
 │   ├── .env                  ← (Create manually) Configuration file
 │   ├── jobs.xml              ← Legacy XML data seed source
-│   ├── seed.js               ← Seeder script (xml2js parsing)
+│   ├── seed.js               ← Seeder script (for MongoDB initialization)
 │   └── server.js             ← Express main entry point
 │
 └── frontend/                 ← React.js SPA Client

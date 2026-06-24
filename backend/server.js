@@ -11,18 +11,18 @@ const app  = express();
 const PORT = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
+// ── Conditionally Connect to MongoDB Atlas or run in Local Mode ──
 if (!MONGODB_URI) {
-  console.error("❌ MONGODB_URI is not defined in environment variables!");
-  process.exit(1);
+  console.log("⚠️  MONGODB_URI is not defined in environment variables.");
+  console.log("📂 Running server in LOCAL MODE using local JSON storage.");
+} else {
+  mongoose.connect(MONGODB_URI)
+    .then(() => console.log("✅ Connected successfully to MongoDB Atlas"))
+    .catch(err => {
+      console.error("❌ Failed to connect to MongoDB Atlas:", err.message);
+      console.log("📂 Falling back to LOCAL MODE using local JSON storage.");
+    });
 }
-
-// ── Connect to MongoDB Atlas ─────────────────────────────────
-mongoose.connect(MONGODB_URI)
-  .then(() => console.log("✅ Connected successfully to MongoDB Atlas"))
-  .catch(err => {
-    console.error("❌ Failed to connect to MongoDB Atlas:", err.message);
-    process.exit(1);
-  });
 
 // ── Middleware ────────────────────────────────────────────────
 app.use(cors({ origin: "http://localhost:3000" }));   
