@@ -31,9 +31,11 @@ The backend features a **hybrid database fallback engine** that automatically de
 ```env
 # Optional: Provide a connection string to connect to MongoDB. 
 # If left blank, the app will run in Local Mode (offline JSON storage).
-MONGODB_URI=mongodb+srv://your_username:your_password@cluster0.xxx.mongodb.net/job_portal?retryWrites=true&w=majority
+MONGODB_URI=your_mongodb_connection_string
 
-JWT_SECRET=jobportal_secret_key_2026
+# Use a long, random, private value
+JWT_SECRET=your_secret_here
+
 PORT=5000
 ```
 
