@@ -54,7 +54,7 @@ The backend features a **hybrid database fallback engine** that automatically de
 # If left blank, the app will run in Local Mode (offline JSON storage).
 MONGODB_URI=mongodb+srv://your_username:your_password@cluster0.xxx.mongodb.net/job_portal?retryWrites=true&w=majority
 
-JWT_SECRET=your_secret_here
+JWT_SECRET=jobportal_secret_key_2026
 PORT=5000
 ```
 
